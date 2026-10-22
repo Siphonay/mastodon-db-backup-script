@@ -75,7 +75,7 @@ fi
 
 # Upload to B2 bucket using the same filename as on the disk
 echo "Uploading backup to B2 as ${backup_name} in bucket ${2}…"
-b2 upload-file --noProgress "${2}" "${1}/${backup_name}" "${backup_name}" || error_abort 'failed to upload backup to B2 bucket' 3
+backblaze-b2 upload-file --noProgress "${2}" "${1}/${backup_name}" "${backup_name}" || error_abort 'failed to upload backup to B2 bucket' 3
 
 
 # If the --retention-days option is used, verbosely delete backups older than the number of days specified.
